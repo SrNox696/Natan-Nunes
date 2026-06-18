@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Projeto | Natan Nunes — Creative Direction Professional</title>
+    <meta name="description" content="Detalhes do projeto no portfolio de Natan Nunes — Video Editor, Graphic Designer e Social Media Specialist baseado em Angola.">
+    <meta name="author" content="Natan Nunes">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Natan Nunes | Creative Direction Professional">
+    <meta property="og:description" content="Video Editor, Graphic Designer & Social Media Specialist. Criando experiências visuais premium baseado em Angola.">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Natan Nunes | Creative Direction Professional">
+    <meta name="twitter:image" content="assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="shortcut icon" href="assets/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="project-page">
+    <!-- Custom Mouse Glow -->
+    <div class="cursor-glow"></div>
+    
+    <!-- Navigation -->
+    <header class="navbar glass scrolled" style="position: sticky; top: 1rem; margin-bottom: 2rem;">
+        <div class="container nav-container flex-between">
+            <a href="index.html" class="brand">Natan<span>.</span></a>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
+                <div class="lang-switcher">
+                    <button class="current-lang"><span id="current-lang-icon">🇵🇹</span> <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="lang-dropdown glass">
+                        <button class="lang-btn active" data-lang="pt">🇵🇹 PT</button>
+                        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                        <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="project-header">
+            <a href="index.html" class="btn-back">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span data-i18n="btn_back_portfolio">Voltar ao Portfólio</span>
+            </a>
+        </div>
+
+        <section id="project-content">
+            <!-- Content will be injected here by project.js -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container flex-between footer-content">
+            <div class="footer-logo">Natan<span>.</span> <svg class="easter-guitar" style="width: 14px; height: 14px; cursor: pointer; margin-left: 8px; opacity: 0.3; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.3'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18a4 4 0 1 1-4-4c0-2 2-2 4-4v8z"/><path d="M12 10V4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2"/><path d="M14 6H9"/></svg></div>
+            <p>&copy; 2026 Natan Nunes &mdash; Creative Direction Professional</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Load language first -->
+    <script src="lang.js"></script>
+    <!-- Load data first -->
+    <script src="projects-data.js"></script>
+    <!-- Common script for mouse glow -->
+    <script src="script.js"></script>
+    <!-- Specific script for project page -->
+    <script src="project.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natan Nunes | Creative Direction Professional</title>
+    <meta name="description" content="Portfolio de Natan Nunes — Video Editor, Graphic Designer e Social Media Specialist baseado em Angola. Especialista em identidade visual, motion graphics e conteúdo digital premium.">
+    <meta name="author" content="Natan Nunes">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Natan Nunes | Creative Direction Professional">
+    <meta property="og:description" content="Video Editor, Graphic Designer & Social Media Specialist. Criando experiências visuais premium baseado em Angola.">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Natan Nunes | Creative Direction Professional">
+    <meta name="twitter:description" content="Video Editor, Graphic Designer & Social Media Specialist.">
+    <meta name="twitter:image" content="assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="shortcut icon" href="assets/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Mouse Glow -->
+    <div class="cursor-glow"></div>
+    
+    <!-- Navigation -->
+    <header class="navbar glass">
+        <div class="container nav-container flex-between">
+            <a href="#hero" class="brand">Natan<span>.</span></a>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
+                <div class="lang-switcher">
+                    <button class="current-lang"><span id="current-lang-icon">🇵🇹</span> <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="lang-dropdown glass">
+                        <button class="lang-btn active" data-lang="pt">🇵🇹 PT</button>
+                        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                        <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link" data-i18n="nav_about">Sobre Mim</a></li>
+                    <li><a href="#services" class="nav-link" data-i18n="nav_services">Serviços</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">Portfólio</a></li>
+                    <li><a href="#process" class="nav-link" data-i18n="nav_process">Processo</a></li>
+                    <li><a href="#testimonials" class="nav-link" data-i18n="nav_testimonials">Testemunhos</a></li>
+                    <li><a href="#contact" class="nav-link btn-contact" data-i18n="nav_contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-content reveal">
+                <div class="hero-badge" data-i18n="hero_badge">Disponível para novos projetos</div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Natan Nunes</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">Video Editor, Graphic Designer & Social Media Specialist</p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <span data-i18n="btn_portfolio">Ver Portfólio</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                    <button id="btn-why-me" class="btn btn-accent">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                        <span data-i18n="btn_why_me">Pq me escolher</span>
+                    </button>
+                    <a href="#contact" class="btn btn-outline" data-i18n="btn_contact">Entrar em Contacto</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span class="scroll-text" data-i18n="scroll_text">Deslize</span>
+                <div class="scroll-chevrons">
+                    <svg class="scroll-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    <svg class="scroll-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text reveal-left">
+                        <h2 class="section-heading" data-i18n="about_heading">Sobre Mim</h2>
+                        <p class="lead" data-i18n="about_lead">Criador digital visionário baseado em <strong>Angola</strong>, elevando marcas através de narrativas visuais impactantes.</p>
+                        <p data-i18n="about_desc">Com uma vasta experiência em edição de vídeo, design gráfico e marketing digital, a minha missão é transformar ideias em experiências imersivas. Utilizo as ferramentas mais recentes, incluindo inteligência artificial, para acelerar resultados e entregar projetos de classe mundial.</p>
+                        <div class="tech-stack">
+                            <span>Adobe CC</span>
+                            <span>DaVinci Resolve</span>
+                            <span>Figma</span>
+                            <span>Midjourney</span>
+                            <span>AI Tools</span>
+                        </div>
+                    </div>
+                    <div class="about-stats glass reveal-right">
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="150">0</h3>
+                            <p data-i18n="stat_projects">Projetos Concluídos</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="400">0</h3>
+                            <p data-i18n="stat_videos">Vídeos Editados</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="300">0</h3>
+                            <p data-i18n="stat_designs">Designs Criados</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="85">0</h3>
+                            <p data-i18n="stat_clients">Clientes Atendidos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section relative">
+            <div class="bg-blur right"></div>
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-heading" data-i18n="services_heading">Especialidades</h2>
+                    <p class="section-subheading" data-i18n="services_sub">Soluções criativas ponta a ponta que destacam a sua marca no mundo digital.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card glass reveal hover-up">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                        </div>
+                        <h3 data-i18n="srv_video_title">Edição de Vídeo</h3>
+                        <p data-i18n="srv_video_desc">Cinematografia e pós-produção de alto impacto para comerciais, documentários e redes sociais.</p>
+                    </div>
+                    <div class="service-card glass reveal hover-up" style="transition-delay: 0.1s;">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                        </div>
+                        <h3 data-i18n="srv_design_title">Design Gráfico</h3>
+                        <p data-i18n="srv_design_desc">Identidades visuais memoráveis, branding moderno e materiais promocionais premium.</p>
+                    </div>
+                    <div class="service-card glass reveal hover-up" style="transition-delay: 0.2s;">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        </div>
+                        <h3 data-i18n="srv_social_title">Gestão de Redes Sociais</h3>
+                        <p data-i18n="srv_social_desc">Estratégias orientadas por dados, crescimento de comunidade e conteúdo altamente engajante.</p>
+                    </div>
+                    <div class="service-card glass reveal hover-up">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                        <h3 data-i18n="srv_motion_title">Motion Graphics</h3>
+                        <p data-i18n="srv_motion_desc">Animações 2D e 3D dinâmicas que dão vida às suas ideias e retêm a atenção da audiência.</p>
+                    </div>
+                    <div class="service-card glass reveal hover-up" style="transition-delay: 0.1s;">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <h3 data-i18n="srv_ai_title">Conteúdo com IA</h3>
+                        <p data-i18n="srv_ai_desc">Integração de inteligência artificial para otimizar processos criativos e gerar assets únicos.</p>
+                    </div>
+                    <div class="service-card glass reveal hover-up" style="transition-delay: 0.2s;">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <h3 data-i18n="srv_music_title">Capas de Música</h3>
+                        <p data-i18n="srv_music_desc">Artworks conceituais e sofisticados para álbuns e singles que refletem a essência da sua música.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio section relative">
+            <div class="bg-blur left"></div>
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-heading" data-i18n="portfolio_heading">Obras em Destaque</h2>
+                </div>
+                
+                <div class="portfolio-filters reveal">
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todos</button>
+                    <button class="filter-btn" data-filter="video" data-i18n="filter_video">Vídeos</button>
+                    <button class="filter-btn" data-filter="design" data-i18n="filter_design">Design Gráfico</button>
+                    <button class="filter-btn" data-filter="social" data-i18n="filter_social">Social Media</button>
+                    <button class="filter-btn" data-filter="artwork" data-i18n="filter_artwork">Artwork Musical</button>
+                </div>
+
+                <div class="portfolio-gallery" id="portfolio-gallery">
+                    <!-- Projects will be dynamically injected here by script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process section relative">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-heading" data-i18n="process_heading">O Meu Processo</h2>
+                    <p class="section-subheading" data-i18n="process_sub">Do conceito à entrega, uma metodologia transparente e focada em resultados de excelência.</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-icon glass">1</div>
+                        <div class="timeline-content glass hover-up">
+                            <h3 data-i18n="proc_1_title">Planeamento & Visão</h3>
+                            <p data-i18n="proc_1_desc">Reunião de briefing, alinhamento de expectativas e pesquisa profunda de referências. Definimos juntos a visão clara e o objetivo do projeto.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-icon glass">2</div>
+                        <div class="timeline-content glass hover-up">
+                            <h3 data-i18n="proc_2_title">Criação & Execução</h3>
+                            <p data-i18n="proc_2_desc">Desenvolvimento dos primeiros cortes, designs ou estratégias. Utilização de IA e ferramentas premium da indústria para explorar os melhores conceitos visuais.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-icon glass">3</div>
+                        <div class="timeline-content glass hover-up">
+                            <h3 data-i18n="proc_3_title">Revisão & Polimento</h3>
+                            <p data-i18n="proc_3_desc">Apresentação das propostas iniciais, feedback colaborativo e refinamento de todos os micro-detalhes, animações e color grading até à perfeição.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-icon glass">4</div>
+                        <div class="timeline-content glass hover-up">
+                            <h3 data-i18n="proc_4_title">Entrega & Lançamento</h3>
+                            <p data-i18n="proc_4_desc">Exportação nos formatos ideais para cada plataforma, organização impecável de ficheiros e entrega final do projeto pronto a impactar o seu público.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section relative">
+            <div class="bg-blur right" style="top: 0; opacity: 0.1;"></div>
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-heading" data-i18n="testi_heading">O Que Dizem</h2>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card glass reveal hover-up">
+                        <div class="quote-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg></div>
+                        <p class="testimonial-text" data-i18n="testi_1_text">"O Natan transformou completamente a identidade visual da nossa agência. O nível de detalhe na edição e no motion graphics é absoluto world-class."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Rodrigo</h4>
+                                <span data-i18n="testi_1_role">CEO, TechCreative UK</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card glass reveal hover-up" style="transition-delay: 0.1s;">
+                        <div class="quote-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg></div>
+                        <p class="testimonial-text" data-i18n="testi_2_text">"A velocidade com que ele entrega edições complexas mantendo uma estética cinematográfica premium é impressionante. Elevou o nosso canal de YouTube para outro patamar."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Cliente Anónimo</h4>
+                                <span data-i18n="testi_2_role">Diretora de Marketing, StudioV</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section relative">
+            <div class="container">
+                <div class="contact-wrapper glass reveal">
+                    <div class="contact-info">
+                        <h2 class="section-heading" data-i18n="contact_heading">Vamos Criar<br>Algo Incrível.</h2>
+                        <p data-i18n="contact_sub">Pronto para elevar a sua marca e criar conteúdo que converte? Entre em contacto e vamos transformar a sua visão em realidade.</p>
+                        
+                        <div class="social-links">
+                            <a href="https://wa.me/927061458" target="_blank" class="social-btn whatsapp">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                                WhatsApp
+                            </a>
+                            <a href="mailto:nunesnataniel5@gmail.com" class="social-btn email">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                E-mail
+                            </a>
+                            <a href="https://www.instagram.com/nata_design_editor/" target="_blank" class="social-btn instagram">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                Instagram
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61586871564686" target="_blank" class="social-btn facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                                Facebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container flex-between footer-content">
+            <div class="footer-logo">Natan<span>.</span> <svg class="easter-guitar" style="width: 14px; height: 14px; cursor: pointer; margin-left: 8px; opacity: 0.3; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.3'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18a4 4 0 1 1-4-4c0-2 2-2 4-4v8z"/><path d="M12 10V4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2"/><path d="M14 6H9"/></svg></div>
+            <p>&copy; 2026 Natan Nunes &mdash; Creative Direction Professional</p>
+        </div>
+    </footer>
+
+    <!-- Video Modal Overlay -->
+    <div id="why-me-modal" class="video-modal-overlay">
+        <div class="video-modal-container">
+            <button class="video-modal-close" id="close-modal-btn" aria-label="Fechar">&times;</button>
+            <video id="why-me-video" src="Vidio/Vidio%20em%20motion%20grafics%20mostrando%20oq%20eu%20sei%20fazer.mp4" controls playsinline></video>
+        </div>
+    </div>
+
+    <script src="lang.js"></script>
+    <script src="projects-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
