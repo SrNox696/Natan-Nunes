@@ -309,8 +309,48 @@ function setLanguage(lang) {
 
 // Load saved language on startup
 document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('selectedLang') || 'pt';
-    setLanguage(savedLang);
+    const savedLang = localStorage.getItem('selectedLang');
+    const introSplash = document.getElementById('intro-splash');
+    const introAnimation = document.getElementById('intro-animation');
+    const introLangSelect = document.getElementById('intro-lang-select');
+    
+    if (savedLang) {
+        // Not the first visit, hide splash immediately
+        if (introSplash) {
+            introSplash.style.display = 'none';
+            introSplash.classList.add('hidden');
+            introSplash.remove();
+        }
+        setLanguage(savedLang);
+    } else {
+        // First visit
+        document.body.style.overflow = 'hidden';
+        // Default translation temporarily without saving state
+        document.documentElement.lang = 'pt';
+        
+        // Fade out animation and show options
+        setTimeout(() => {
+            if (introAnimation) introAnimation.classList.add('fade-out');
+            if (introLangSelect) introLangSelect.classList.add('show');
+        }, 3000);
+        
+        // Listeners for splash screen language selection
+        document.querySelectorAll('.lang-select-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                setLanguage(lang);
+                
+                if (introSplash) {
+                    introSplash.style.opacity = '0';
+                    setTimeout(() => {
+                        introSplash.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        introSplash.remove();
+                    }, 1000);
+                }
+            });
+        });
+    }
 
     // Setup listeners for language dropdown
     const langSwitcher = document.querySelector('.lang-switcher');
