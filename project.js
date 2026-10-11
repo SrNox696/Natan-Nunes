@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let mediaHtml = '';
         if (project.type === 'video') {
-            mediaHtml = `<video src="${project.url}" autoplay loop controls playsinline></video>`;
+            mediaHtml = `<video src="${project.url}" autoplay loop controls playsinline preload="metadata"></video>`;
         } else {
-            mediaHtml = `<img src="${project.url}" alt="${project.title}">`;
+            mediaHtml = `<img src="${project.url}" alt="${project.title}" loading="lazy" decoding="async">`;
         }
         
         const currentLang = localStorage.getItem('selectedLang') || 'pt';

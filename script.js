@@ -101,9 +101,9 @@ if (portfolioGallery && typeof projectsData !== 'undefined') {
         
         let mediaHtml = '';
         if (project.type === 'video') {
-            mediaHtml = `<video src="${project.url}" autoplay loop muted playsinline></video>`;
+            mediaHtml = `<video data-src="${project.url}" loop muted playsinline preload="none" class="portfolio-lazy-video"></video>`;
         } else {
-            mediaHtml = `<img src="${project.url}" alt="${project.title[currentLang] || project.title.pt}">`;
+            mediaHtml = `<img src="${project.url}" alt="${project.title[currentLang] || project.title.pt}" loading="lazy" decoding="async">`;
         }
 
         const projectCategory = project.category[currentLang] || project.category.pt;
@@ -139,6 +139,33 @@ if (portfolioGallery && typeof projectsData !== 'undefined') {
     const newRevealElements = portfolioGallery.querySelectorAll('.reveal');
     if (typeof revealObserver !== 'undefined') {
         newRevealElements.forEach(el => revealObserver.observe(el));
+    }
+
+    // Lazy load and autoplay/pause videos on scroll
+    if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const vid = entry.target;
+                if (entry.isIntersecting) {
+                    if (!vid.src && vid.dataset.src) {
+                        vid.src = vid.dataset.src;
+                    }
+                    vid.play().catch(() => {});
+                } else {
+                    if (vid.src) {
+                        vid.pause();
+                    }
+                }
+            });
+        }, { rootMargin: '200px 0px', threshold: 0.1 });
+
+        portfolioGallery.querySelectorAll('.portfolio-lazy-video').forEach(vid => {
+            videoObserver.observe(vid);
+        });
+    } else {
+        portfolioGallery.querySelectorAll('.portfolio-lazy-video').forEach(vid => {
+            if (vid.dataset.src) vid.src = vid.dataset.src;
+        });
     }
 }
 
