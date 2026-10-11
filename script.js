@@ -64,7 +64,7 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
                             counter.innerText = Math.ceil(current);
                             requestAnimationFrame(updateCounter);
                         } else {
-                            counter.innerText = target + (target > 100 ? '+' : '');
+                            counter.innerText = target + '+';
                         }
                     };
                     updateCounter();
