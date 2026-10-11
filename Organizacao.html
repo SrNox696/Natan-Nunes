@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Enterprise Solutions</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --surface: #ffffff;
+            --text-main: #171717;
+            --text-muted: #737373;
+            --accent: #0f172a; /* Slate 900 */
+            --accent-hover: #334155;
+            --border: #e5e5e5;
+            --success: #10b981;
+            --error: #ef4444;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Dark mode values if preferred */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0a0a0a;
+                --surface: #121212;
+                --text-main: #f5f5f5;
+                --text-muted: #a3a3a3;
+                --accent: #ffffff;
+                --accent-hover: #e5e5e5;
+                --border: #262626;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navbar */
+        nav {
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-symbol {
+            width: 1.5rem;
+            height: 1.5rem;
+            background: var(--text-main);
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section (Decide/Learn Surface) */
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: left;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface);
+            border-color: var(--text-main);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--text-main);
+        }
+
+        .feature-icon {
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 4rem 0;
+            background: var(--surface);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .secret-anchor {
+            text-decoration: none;
+            color: inherit;
+            cursor: default;
+        }
+
+        /* Hidden Employee SSO Portal Modal (Operate Surface) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 420px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--text-main);
+        }
+
+        .modal-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* Employee Dashboard (Monitor Surface) - Initially Hidden */
+        #dashboard {
+            display: none;
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .db-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--success);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+
+        .status-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--success);
+            border-radius: 50%;
+        }
+
+        .db-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .db-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .db-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .db-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Enterprise Directory Table */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.875rem;
+        }
+
+        th {
+            padding: 0.75rem 1rem;
+            border-bottom: 2px solid var(--border);
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge-dept {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Terminal-like Logs Card */
+        .logs-panel {
+            background: #171717;
+            color: #a3a3a3;
+            font-family: monospace;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            height: 240px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            margin-bottom: 0.5rem;
+        }
+
+        .log-time {
+            color: #525252;
+            margin-right: 0.5rem;
+        }
+
+        .log-success {
+            color: #4ade80;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <div class="logo-symbol"></div>
+                Aegis Solutions
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Soluções</a></li>
+                <li><a href="#about">Segurança</a></li>
+                <li><a href="#compliance">Infraestrutura</a></li>
+            </ul>
+            <button class="nav-cta" onclick="document.getElementById('contact-alert').style.display='block'">Acessar Painel</button>
+        </div>
+    </nav>
+
+    <!-- Hero Area (Decide/Learn) -->
+    <main class="container">
+        <section class="hero">
+            <h1 class="hero-title">Segurança de dados e governança de alta performance.</h1>
+            <p class="hero-subtitle">Garantimos a integridade operacional e a infraestrutura tecnológica de nível corporativo para os mercados mais exigentes.</p>
+            <div class="hero-ctas">
+                <a href="#features" class="btn btn-primary">Conhecer Soluções</a>
+                <a href="javascript:void(0)" onclick="openSsoModal()" class="btn btn-secondary">Área do Colaborador</a>
+            </div>
+        </section>
+
+        <!-- Features (Decide/Learn Grid) -->
+        <section class="features" id="features">
+            <div class="section-label">Portfólio de Serviços</div>
+            <h2 class="section-title">Infraestrutura robusta projetada para escala.</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <h3>Criptografia Zero-Knowledge</h3>
+                    <p>Proteção de dados críticos em repouso e em trânsito com protocolos militares de auditoria contínua.</p>
+                </div>
+                <div class="feature-card">
+                    <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                    <h3>Analytics em Tempo Real</h3>
+                    <p>Monitore anomalias estruturais, consumo de largura de banda e compliance regulatório em um único lugar.</p>
+                </div>
+                <div class="feature-card">
+                    <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    <h3>Infraestrutura Kubernetes</h3>
+                    <p>Orquestração resiliente multi-cloud com redundância automática e SLA de disponibilidade de 99.99%.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic / Secret Employee Dashboard (Monitor / Operate Surface) -->
+        <section id="dashboard">
+            <div class="db-header">
+                <div>
+                    <div class="section-label" style="margin-bottom:0.25rem;">Painel de Controle Interno</div>
+                    <h2 class="section-title" style="margin-bottom:0;">Consolo Operacional</h2>
+                </div>
+                <span class="status-badge">
+                    <span class="status-dot"></span>
+                    Sistemas Operacionais
+                </span>
+            </div>
+
+            <div class="db-grid">
+                <!-- Directory (Database Visualizer) -->
+                <div class="db-card">
+                    <h3>Base de Dados de Colaboradores</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Departamento</th>
+                                    <th>Credencial</th>
+                                </tr>
+                            </thead>
+                            <tbody id="directory-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Diagnostics & Security Logs -->
+                <div class="db-card">
+                    <h3>Registros de Segurança (Logs)</h3>
+                    <div class="logs-panel" id="logs-terminal">
+                        <!-- Simulated logs populate here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with secret SSO trigger -->
+    <footer>
+        <div class="container footer-wrapper">
+            <div>
+                © 2026 Aegis Solutions. Todos os direitos reservados. 
+                <!-- Secret dot trigger: subtle hidden link -->
+                <a href="javascript:void(0)" onclick="openSsoModal()" class="secret-anchor">.</a>
+            </div>
+            <div>
+                Confidencialidade Estrita
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enterprise SSO Login Modal (SSO Style UI) -->
+    <div class="modal" id="sso-modal" onclick="closeSsoModalOutside(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="modal-title">Aegis Single Sign-On</h3>
+                <p class="modal-subtitle">Insira suas credenciais corporativas autorizadas.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="sso-user">E-mail Corporativo</label>
+                <input type="email" id="sso-user" class="form-control" placeholder="usuario@aegis.corp" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="sso-pass">Código de Acesso</label>
+                <input type="password" id="sso-pass" class="form-control" placeholder="••••••••" autocomplete="off">
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="attemptLogin()">Autenticar</button>
+                <button class="btn btn-secondary" onclick="closeSsoModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fallback general modal for public "Acessar Painel" -->
+    <div class="modal" id="contact-alert" onclick="this.style.display='none'">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <h3 class="modal-title" style="margin-bottom: 1rem;">Área Restrita</h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2rem;">Este painel corporativo exige conexões VPN locais e autenticação biométrica avançada para visitantes.</p>
+            <button class="btn btn-primary" style="width:100%;" onclick="document.getElementById('contact-alert').style.display='none'">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Highly realistic mockup database
+        const employees = [
+            { id: "AEG-01", name: "Natã N.", dept: "Chief Operations Officer", credential: "Nível 5 (Líder)" },
+            { id: "AEG-02", name: "Sonya A.I.", dept: "Sistemas Cognitivos", credential: "Nível 5 (Total)" },
+            { id: "AEG-09", name: "Gabriel S.", dept: "Infraestrutura Física", credential: "Nível 3" },
+            { id: "AEG-14", name: "Juliana K.", dept: "Auditoria Interna", credential: "Nível 4" },
+            { id: "AEG-23", name: "Rodrigo M.", dept: "DevOps & Cloud", credential: "Nível 3" }
+        ];
+
+        // System Diagnostic Log Generator
+        const logLines = [
+            "Initializing handshake with Aegis-Core DB cluster...",
+            "SSO authentication provider verified successfully.",
+            "Integrity checking database partition AEG_SECTOR_05...",
+            "VPN active connection: node-saopaulo-04.aegis.corp established.",
+            "Docker cluster status: healthy [24 active instances]",
+            "SIEM analyzer: zero threat factors registered in last 60m.",
+            "Active encryption keys rotation initiated [SHA-512]."
+        ];
+
+        function openSsoModal() {
+            document.getElementById('sso-modal').style.display = 'flex';
+            document.getElementById('sso-user').focus();
+        }
+
+        function closeSsoModal() {
+            document.getElementById('sso-modal').style.display = 'none';
+        }
+
+        function closeSsoModalOutside(event) {
+            closeSsoModal();
+        }
+
+        function attemptLogin() {
+            const user = document.getElementById('sso-user').value.trim();
+            const pass = document.getElementById('sso-pass').value.trim();
+
+            // Simple admin check: credential is 'admin123'
+            if (pass === "admin123" && user.endsWith("@aegis.corp")) {
+                closeSsoModal();
+                showDashboard();
+            } else {
+                alert("Falha de autenticação. Código de acesso ou credencial inválidos para servidores seguros.");
+            }
+        }
+
+        function showDashboard() {
+            const dbSection = document.getElementById('dashboard');
+            dbSection.style.display = 'block';
+            dbSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Populate directory table
+            const tbody = document.getElementById('directory-body');
+            tbody.innerHTML = "";
+            employees.forEach(emp => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><code>${emp.id}</code></td>
+                    <td><strong>${emp.name}</strong></td>
+                    <td><span class="badge-dept">${emp.dept}</span></td>
+                    <td>${emp.credential}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Populate and start terminal logs simulation
+            const logsContainer = document.getElementById('logs-terminal');
+            logsContainer.innerHTML = "";
+            
+            let logIndex = 0;
+            function addLogLine() {
+                if (logIndex < logLines.length) {
+                    const line = logLines[logIndex];
+                    const timestamp = new Date().toISOString().split('T')[1].substring(0, 8);
+                    
+                    const logEl = document.createElement('div');
+                    logEl.className = "log-entry";
+                    logEl.innerHTML = `
+                        <span class="log-time">[${timestamp}]</span> 
+                        <span class="${line.includes('verified') || line.includes('healthy') ? 'log-success' : ''}">${line}</span>
+                    `;
+                    logsContainer.appendChild(logEl);
+                    logsContainer.scrollTop = logsContainer.scrollHeight;
+                    logIndex++;
+                    setTimeout(addLogLine, 600);
+                }
+            }
+            addLogLine();
+        }
+
+        // Secret keyboard shortcut: Ctrl+Alt+S triggers SSO modal (less conflict with OS shortcuts)
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.altKey && event.key === 's') {
+                event.preventDefault();
+                openSsoModal();
+            }
+        });
+    </script>
+</body>
+</html>
