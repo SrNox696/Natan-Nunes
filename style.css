@@ -446,20 +446,74 @@ a {
     margin-bottom: 1.5rem;
 }
 
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+/* Tools & Technologies Box */
+.tools-container {
     margin-top: 2rem;
+    padding: 1.75rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.tech-stack span {
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-color);
-    border-radius: 100px;
+.tools-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tools-title svg {
+    color: var(--primary);
+}
+
+.tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tool-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.tool-category {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.tool-tag {
+    padding: 0.35rem 0.85rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    color: var(--text-main);
+    transition: var(--transition-fast);
+    font-weight: 500;
+}
+
+.tool-tag:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.4);
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 .about-stats {
